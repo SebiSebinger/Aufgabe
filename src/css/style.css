@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d93951;
+}
+
+h1 {
+    color: #ffffff; 
+}
+
+.card {
+    margin-top: 50px;
+    border: none;
+    border-radius: 20px;
+    color: #c12828;
+}
+
+.feedback-text {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.fw-bold {
+    font-weight: bold;
+    color: #c12828; /* Sekundäre Textfarbe */
+}
+
+.shadow {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
