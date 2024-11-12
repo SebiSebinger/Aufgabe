@@ -14,7 +14,7 @@ h1 {
     color: #c12828;
 }
 
-.feedback-text {
+.eingabe-text {
     font-size: 1.1em;
     margin-bottom: 15px;
 }
@@ -26,7 +26,9 @@ h1 {
 
 .fw-bold {
     font-weight: bold;
-    color: #c12828; /* Sekundäre Textfarbe */
+    color: #ffffff;
+    text-align: center;
+    font-size: large;
 }
 
 .shadow {
