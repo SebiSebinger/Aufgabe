@@ -1,4 +1,4 @@
-# tuta-URL Checker
+# URL Checker
 
 Eine kl. Webanwendung, die Benutzer*innen ermöglicht, zu überprüfen, ob eine eingegebene URL ein gültiges Format hat und ob die URL existiert(existenz ist zufallswert ja/nein). 
 Die Existenzprüfung erfolgt auf Client-Seite durch eine simulierte Serverantwort.
