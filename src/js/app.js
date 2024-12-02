@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         timeoutId = setTimeout(async () => {
 
             if(laufendeRequests.has(url)){
+                output.textContent = "Die URL wird bereits geprüft. Bitte warten.";
                 console.log('Prüfung läuft bereits');
                 return;
             }
