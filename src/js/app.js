@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            
+            //Test
             const result = await mockServerRequest(url);
             output.textContent = result.exists
                 ? `URL existiert und verweist auf eine ${result.type}.`
