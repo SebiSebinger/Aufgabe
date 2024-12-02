@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let timeoutId;
     let lastCheckedUrl = null; // Hier speichere ich die zuletzt geprüfte URL
+    const laufendeRequests= new Set(); //Es werden Urls gespeichert die gerade geprüft werden
 
     const statusMessages = {
         200: {
@@ -45,6 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         timeoutId = setTimeout(async () => {
+
+            if(laufendeRequests.has(url)){
+                console.log('Prüfung läuft bereits');
+                return;
+            }
+            laufendeRequests.add(url);
             lastCheckedUrl = url; // Speichert URL vor dem Request
             const result = await mockServerRequest(url);
 
@@ -57,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 console.log("Ergebnis veraltet, wird nicht angezeigt");
             }
+            laufendeRequests.delete(url);
         }, 1500);
     });
 });
