@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     let timeoutId;
+    let lastCheckedUrl = null; //Hier speichere ich die zuletzt geprüfte URL
 
     // Eventlistener für die Eingabe mit Throttling
     urlInput.addEventListener("input", () => {
@@ -30,14 +31,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // URL-Format Prüfung
         if (!isValidUrl(url)) {
             output.textContent = "Ungültiges URL-Format.";
+            lastCheckedUrl = null;
             return;
         }
         
         timeoutId = setTimeout(async () => {
+            lastCheckedUrl = url; //Speichert URL vor dem Rewuest
             const result = await mockServerRequest(url);
-            output.textContent = result.exists
+
+            if (url === lastCheckedUrl){
+                output.textContent = result.exists
                 ? `URL existiert und verweist auf eine ${result.type}.`
-                : "URL existiert nicht.";
+                : "URL existiert nicht."
+            }else {
+                console.log("Ergebnis veraltet, wird nicht angezeigt.");
+            }
         }, 1500);
     });
 });
