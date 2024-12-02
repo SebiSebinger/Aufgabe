@@ -23,19 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Eventlistener für die Eingabe mit Throttling
     urlInput.addEventListener("input", () => {
+        const url = urlInput.value.trim();
         clearTimeout(timeoutId);
+        output.textContent = ""; // Löscht vorherige Meldungen
 
+        // URL-Format Prüfung
+        if (!isValidUrl(url)) {
+            output.textContent = "Ungültiges URL-Format.";
+            return;
+        }
+        
         timeoutId = setTimeout(async () => {
-            const url = urlInput.value.trim();
-            output.textContent = ""; // Löscht vorherige Meldungen
-
-            // URL-Format Prüfung
-            if (!isValidUrl(url)) {
-                output.textContent = "Ungültiges URL-Format.";
-                return;
-            }
-
-            //Test
             const result = await mockServerRequest(url);
             output.textContent = result.exists
                 ? `URL existiert und verweist auf eine ${result.type}.`
